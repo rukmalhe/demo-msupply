@@ -1,0 +1,13 @@
+{
+  "devDependencies": {
+    "chai": "^5.2.1",
+    "mocha": "^11.7.1"
+  },
+  "dependencies": {
+    "selenium-webdriver": "^4.35.0"
+  },
+  "scripts": {
+    "test": "mocha \"tests/**/*.spec.js\" --timeout 40000",
+    "test:login": "mocha tests/automation/driver-JS/loginTests.spec.js --timeout 40000"
+  }
+}

@@ -1,0 +1,16 @@
+# Selenium WebDriverJS + Mocha Automation Tests
+
+This project contains automated UI tests written in **JavaScript** using **Selenium WebDriver** and **Mocha** as the test framework.
+
+---
+
+## Prerequisites
+
+- **Node.js** (v16 or higher recommended)  
+  [Download & Install](https://nodejs.org/)
+
+- **npm** (comes with Node.js)  
+  Check versions:
+  ```bash
+  node -v
+  npm -v

@@ -1,0 +1,115 @@
+{
+  "id": "b679b672-5cfb-4e99-ba08-bcb9b572adeb",
+  "version": "2.0",
+  "name": "mSupply-demo",
+  "url": "https://demo-open.msupply.org",
+  "tests": [{
+    "id": "1014913b-bc24-4948-a72f-6a0733afa3d0",
+    "name": "LoginTests",
+    "commands": [{
+      "id": "63028b71-cd1f-4454-9a1c-ec10ab6c62a8",
+      "comment": "",
+      "command": "open",
+      "target": "/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cb032536-395a-4f9e-8b75-20d7b99af7be",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "761x817",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7b447128-b908-4bde-af57-0338becb8d29",
+      "comment": "",
+      "command": "type",
+      "target": " xpath=//label[normalize-space(.)='Username']/following::input[1]",
+      "targets": [],
+      "value": "Rukmal"
+    }, {
+      "id": "674ff86c-e6af-43df-8018-7e6941c2064e",
+      "comment": "",
+      "command": "type",
+      "target": " xpath=//label[normalize-space(.)='Password']/following::input[1]",
+      "targets": [],
+      "value": "pass"
+    }, {
+      "id": "e6f32a94-c48b-4357-93d5-bd6deffcd26e",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c0dbeb6e-e8de-4e38-9bd5-dce5f928ef70",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//button[@aria-label='Log in']",
+      "targets": [
+        ["id=:r2:", "id"],
+        ["css=#\\3Ar2\\3A", "css:finder"],
+        ["xpath=//input[@id=':r2:']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/div[2]/div/form/div/div[3]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "058399b7-fbd6-43a0-a375-ac69dfd16504",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.MuiButton-root",
+      "targets": [
+        ["css=.MuiButton-root", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/div[2]/div/form/div/div[4]/span/button", "xpath:idRelative"],
+        ["xpath=//span/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Log in')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fa17883e-5129-43e5-b184-842bf783a567",
+      "comment": "",
+      "command": "type",
+      "target": "id=:r2:",
+      "targets": [
+        ["id=:r2:", "id"],
+        ["css=#\\3Ar2\\3A", "css:finder"],
+        ["xpath=//input[@id=':r2:']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/div[2]/div/form/div/div[3]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/input", "xpath:position"]
+      ],
+      "value": "pass"
+    }, {
+      "id": "3f037ddd-f0e5-4fbb-887f-67a615e84525",
+      "comment": "",
+      "command": "click",
+      "target": "css=.MuiButton-root",
+      "targets": [
+        ["css=.MuiButton-root", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/div[2]/div/form/div/div[4]/span/button", "xpath:idRelative"],
+        ["xpath=//span/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Log in')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "13087661-b7ec-4307-b549-83274daf4a6b",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=#notistack-snackbar",
+      "targets": [],
+      "value": "Welcome to the Rukmal2 store"
+    }]
+  }],
+  "suites": [{
+    "id": "1a774bdd-f0b2-48c1-975e-ffc4c715b029",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["1014913b-bc24-4948-a72f-6a0733afa3d0"]
+  }],
+  "urls": ["https://demo-open.msupply.org/"],
+  "plugins": []
+}
