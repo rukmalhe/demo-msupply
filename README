@@ -1,94 +1,132 @@
+# Open mSupply Revamp – QA Strategy
 
-# Selenium WebDriverJS + Mocha Automation Tests
+## Overview
 
-This project contains automated UI tests written in JavaScript using Selenium WebDriver and Mocha as the test framework.
+This repository contains the **QA Test Strategy** and a **Proof of Concept (POC) automation suite** for the Open mSupply revamp project.  
+- The **Test Strategy** outlines the approach to validating existing features, new functionality, data migration, and non-functional requirements.  
+- The **Automation POC** demonstrates how Selenium WebDriverJS and Mocha can be used to automate core workflows (e.g., login) and provide a foundation for scaling automation coverage.  
+
+---
+
+## Project Structure
+
+```
+tests/
+└── automation/
+    └── driver-JS/
+        └── loginTests.spec.js   # Example login test
+    └── utils/helper.js
+└── test-strategy/
+    └── TestStrategy.xlsx
+package.json
+README.md
+.env.example
+```
+
+---
+
+## Selenium WebDriverJS + Mocha Automation Tests
+
+This project contains automated UI tests written in **JavaScript** using **Selenium WebDriver** and **Mocha** as the test framework.  
 
 ---
 
 ## Prerequisites
 
 - **Node.js** (v16 or higher recommended)  
-  Download & Install from: https://nodejs.org/
+  Download: https://nodejs.org/
 
 - **npm** (comes with Node.js)  
-  Check versions:
+  Check versions:  
+  ```bash
   node -v
   npm -v
+  ```
 
-# Core test runner
-npm i -D mocha
+- **Mocha (test runner)**  
+  ```bash
+  npm i -D mocha
+  ```
 
-# WebDriver bindings
-npm i selenium-webdriver
+- **Selenium WebDriver bindings**  
+  ```bash
+  npm i selenium-webdriver
+  ```
 
--**Install helpers**
-Managing sensitive test data
-npm i -D dotenv dotenv-safe cross-env
+- **Helpers for managing sensitive test data**  
+  ```bash
+  npm i -D dotenv dotenv-safe cross-env
+  ```
 
-- **Web Browser** (Firefox)  
+- **Web Browser**  
   Selenium 4 will auto-manage drivers for most browsers.  
-  If needed, manually install geckodriver (Firefox) or chromedriver (Chrome).
+  - Firefox (geckodriver)  
 
----
-
-## Project Structure
-public
-tests/
-└── automation/
-              └── driver-JS/
-                  └── loginTests.spec.js   # Example login test
-              └── utils/helper.js
-package.json
-README.md
-.env.example
 ---
 
 ## Installation
 
-1. Clone the repository:
-   git (https://github.com/rukmalhe/demo-msupply.git)
+1. Clone the repository:  
+   ```bash
+   git clone https://github.com/rukmalhe/demo-msupply.git
    cd demo-msupply
+   ```
 
-2. Install dependencies:
+2. Install dependencies:  
+   ```bash
    npm install
+   ```
 
-3. Create your .env from the template and add credentials:
-cp .env.example .env
+3. Create your `.env` file from the template and add credentials:  
+   ```bash
+   cp .env.example .env
+   ```  
 
-Note: add user credentials in .env file
-.gitignore (ensure .env is ignored)
+   ***Ensure `.env` is included in `.gitignore` so credentials are not committed.  
+
 ---
 
 ## Running Tests
 
-### Run all specs in automation/driver-JS
-npm run test
+- **Run all specs in `automation/driver-JS/`**  
+  ```bash
+  npm test
+  ```
 
-### Run a specific test file
-npm run test:login
+- **Run a specific test file (e.g., login tests)**  
+  ```bash
+  npm run test:login
+  ```
 
+---
 
 ## npm Scripts
 
-In package.json:
-"scripts": {
-    "test": "mocha \"tests/**/*.spec.js\" --timeout 40000",
-    "test:login": "mocha tests/automation/driver-JS/loginTests.spec.js --timeout 40000"
-  }
+Defined in `package.json`:  
 
-- npm test → Runs all .spec.js files in automation/driver-JS
-- npm run test:login → Runs only loginTests.spec.js
+```json
+"scripts": {
+  "test": "mocha \"tests/**/*.spec.js\" --timeout 40000",
+  "test:login": "mocha tests/automation/driver-JS/loginTests.spec.js --timeout 40000"
+}
+```
+
+- `npm test` → Runs all `.spec.js` files  
+- `npm run test:login` → Runs only `loginTests.spec.js`  
 
 ---
 
 ## Notes
 
-- Use stable locators (e.g., by label text, aria-label) instead of dynamic IDs from Material-UI.
-- Node’s built-in assertions:
+- Prefer **stable locators** (e.g., labels, aria-labels) instead of dynamic IDs (from Material-UI).  
+- Example assertion:  
+  ```js
   const assert = require('assert');
   assert.strictEqual(actual, expected);
-- Increase --timeout in Mocha for longer Selenium waits.
-- Use .env files to store sensitive credentials (with dotenv).
-- For CI, set USERNAME and PASSWORD as pipeline secrets and run with:
+  ```  
+- Increase `--timeout` in Mocha for longer Selenium waits.  
+- Use `.env` files for sensitive credentials (via `dotenv`).  
+- For CI pipelines, pass credentials as secrets and run:  
+  ```bash
   cross-env USERNAME=$USERNAME PASSWORD=$PASSWORD npm run test
-
+  ```  
