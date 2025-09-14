@@ -7,6 +7,7 @@ const { Builder, By, Key, until } = require('selenium-webdriver');
 const assert = require('assert');
 
 describe('LoginTests', function () {
+  // Mocha test must finish in 40s, implicit waits can cause timeouts
   this.timeout(40000);
   let driver;
 
@@ -44,6 +45,7 @@ describe('LoginTests', function () {
     await passEl.sendKeys(password);
 
     // Wait for the Log in button to be visible & enabled, then click
+    /* “Implicit waits are global timeouts that apply to all element lookups, whereas explicit waits are targeted waits for specific elements or conditions. For example, implicit waits will poll for every element up to a set time, while explicit waits let me say ‘wait up to 10 seconds until this login button is clickable.’ In practice, explicit waits are preferred for stable tests, because they’re precise and reduce flakiness.” */
     const loginBtn = await driver.wait(until.elementLocated(LOGIN_BUTTON), 10000);
     await driver.wait(until.elementIsVisible(loginBtn), 5000);
     await driver.wait(until.elementIsEnabled(loginBtn), 5000);
