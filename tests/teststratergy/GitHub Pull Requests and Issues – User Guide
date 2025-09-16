@@ -1,0 +1,95 @@
+# GitHub Pull Requests and Issues – User Guide
+
+This guide explains how to use the **GitHub Pull Requests and Issues** extension in Visual Studio Code to manage issues and pull requests, such as QA/testing tickets for mSupply releases.
+
+---
+
+## 1. Installation
+1. Open VS Code.
+2. Go to **Extensions** (`Ctrl+Shift+X` / `Cmd+Shift+X`).
+3. Search for **GitHub Pull Requests and Issues** (publisher: *GitHub*).
+4. Click **Install**.  
+   *(Or run: `ext install GitHub.vscode-pull-request-github` in the command palette.)*
+
+---
+
+## 2. Authentication
+1. After installation, open the **Accounts** menu (bottom-left of VS Code).
+2. Click **Sign in to GitHub** → a browser will open.
+3. Authorize the extension to access your GitHub account.
+4. Once authenticated, you’ll see **GitHub** in the VS Code status bar.
+
+---
+
+## 3. Open a GitHub Repository
+1. Clone the repository if you haven’t yet:  
+   ```bash
+   git clone https://github.com/msupply-foundation/open-msupply.git
+   ```
+2. Open the cloned repo in VS Code.
+3. The extension will detect that it’s a GitHub repository.
+
+---
+
+## 4. Working with Issues
+- Open the **GitHub** panel from the activity bar (left sidebar).
+- Expand **ISSUES** to see open issues by labels, milestones, or assignments.
+- Search for specific issue numbers (e.g. `#9179`).
+
+**Available actions:**
+- **View an issue** → click to open description and comments in an editor tab.
+- **Add a comment** → type in the editor and submit.
+- **Assign yourself** → via the issue details toolbar.
+- **Add labels** or **close the issue** (if you have permission).
+- **Create a new issue** → `Ctrl+Shift+P` → “GitHub: Create Issue”.
+
+---
+
+## 5. Working with Pull Requests
+- Under **PULL REQUESTS** you can:
+  - View open/closed PRs.
+  - Review diffs inline, add comments.
+  - Approve or request changes.
+  - Checkout a PR branch locally for testing.
+
+---
+
+## 6. Linking Work to Issues
+When committing, reference issues with keywords to auto-link on GitHub:
+```bash
+git commit -m "Add state transition tests (Fixes #9179)"
+```
+→ This will link the commit/PR to the issue and close it when merged.
+
+---
+
+## 7. Useful Commands (Command Palette)
+Open with `Ctrl+Shift+P` / `Cmd+Shift+P`:
+- `GitHub: Create Issue`
+- `GitHub: Create Pull Request`
+- `GitHub: Checkout Pull Request`
+- `GitHub: Refresh`
+- `GitHub: Sign out`
+
+---
+
+## 8. Best Practices for QA/Test Tickets
+- **One branch per issue**:  
+  ```bash
+  git checkout -b qa/9179-po-state-transitions
+  ```
+- **Reference the issue** in commits and PR titles.
+- **Use comments** in VS Code to log test progress or blockers.
+- **Close issues via PR merge** using `Closes #<issue>` in PR description.
+
+---
+
+## Quick Reference (Cheatsheet)
+- Open **GitHub panel** → view issues & PRs.  
+- Click issue → view details, comment, assign.  
+- Commit messages → use `Fixes #ID` to link.  
+- Command Palette → run `GitHub: …` commands.
+
+---
+
+*This guide is for QA/testers managing tickets such as [mSupply #9179](https://github.com/msupply-foundation/open-msupply/issues/9179).*  
